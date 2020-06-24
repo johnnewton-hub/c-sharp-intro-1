@@ -21,13 +21,22 @@ namespace c_sharp_intro
             // User input...
             Console.WriteLine("Please enter your name...");
             // Assign variable 'userName' to a value entered by the user.
+            // @link https://docs.microsoft.com/en-us/dotnet/api/system.console.readline?view=netcore-3.1
             string userName = Console.ReadLine();
             // Show the user we collected the name.
             Console.WriteLine("You have entered: "+userName);
             // Instead of traditional concatenation using the addition operator...
             // We can use string interpolation (placeholders) to embed values in
             // a string!
+            // @link https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
             Console.WriteLine("Hey {0}, you're looking great today!", userName);
+
+            // Let's play with strings!
+            Console.WriteLine( "makemeuppercase".ToUpper() ); // Convert to uppercase...
+            Console.WriteLine( "MAKEMELOWERCASE".ToLower() ); // Convert to lowercase...
+            // Substring takes two arguments: 1) Starting character position 2) Number of characters to collect.
+            Console.WriteLine( "ABCDEFGHIJKLMNOPQRSTUVWXYZ".Substring( 3, 3 ) );
+            Console.WriteLine( "XYZ".Length ); // Get the number of characters for the string.
         }
     }
 }
