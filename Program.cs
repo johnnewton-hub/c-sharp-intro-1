@@ -6,30 +6,47 @@ namespace c_sharp_intro
     {
         static void Main(string[] args)
         {
-            int myNum = 3;
-            while ( myNum > 0 ) // Iterates/loops while the CONDITION is TRUE.
-            {
-                Console.WriteLine( "Current number is: {0}", myNum );
-                myNum--;
-            }
+            // Guide the user...
+            Console.WriteLine( "Please enter add/subtract/multiply/exit:" );
 
-            /* For loops have 3 semi-colon-separated components:
-                1) Assignment.
-                2) [Termination ]Condition.
-                3) Iteration.
-            */
-            for ( int i = 0; i < 6; i += 2 )
+            // Collect the user input...
+            string userInput;
+            while ( ( userInput = Console.ReadLine() ) != "exit" ) // LOOPS until a user enters "exit" command.
             {
-                Console.WriteLine( "Current (for) number is: {0}", i );
-            }
-
-            // If we need to iterate through a list, use foreach!
-            // @link https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in
-            string[] myList = { "cat", "turtle", "lizard", "frog", "dog" }; // This is a list of strings!
-            foreach ( string listItem in myList )
-            {
-                Console.WriteLine( "The current item is: {0}", listItem );
-            }
+                
+                // Switch statements are similar to if/else.
+                switch ( userInput ) // Here we enter the value we want to test.
+                { // Cases are us testing the above against specific values.
+                    case "add":
+                        Console.WriteLine( "Enter first number for addition:" );
+                        int firstNum = Int32.Parse( Console.ReadLine() );
+                        Console.WriteLine( "Enter second number for addition:" );
+                        int secondNum = Int32.Parse( Console.ReadLine() );
+                        int result = firstNum + secondNum;
+                        Console.WriteLine( "{0} + {1} = {2}", firstNum, secondNum, result );
+                        break;
+                    case "subtract":
+                        Console.WriteLine( "Enter first number for subtraction:" );
+                        int firstNum = Int32.Parse( Console.ReadLine() );
+                        Console.WriteLine( "Enter second number for subtraction:" );
+                        int secondNum = Int32.Parse( Console.ReadLine() );
+                        int result = firstNum - secondNum;
+                        Console.WriteLine( "{0} - {1} = {2}", firstNum, secondNum, result );
+                        break;
+                    case "multiply":
+                        Console.WriteLine( "Enter first number for multiply:" );
+                        int firstNum = Int32.Parse( Console.ReadLine() );
+                        Console.WriteLine( "Enter second number for multiply:" );
+                        int secondNum = Int32.Parse( Console.ReadLine() );
+                        int result = firstNum * secondNum;
+                        Console.WriteLine( "{0} * {1} = {2}", firstNum, secondNum, result );
+                        break;
+                    default:
+                        Console.WriteLine( "Unrecognized operator/command entered." );
+                        break;
+                } // End of switch statement.
+                Console.WriteLine( "Please enter a new command: add/subtract/multiply/exit." );
+            } // End of while statement.
         }
     }
 }
