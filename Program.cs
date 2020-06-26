@@ -6,25 +6,47 @@ namespace c_sharp_intro
     {
         static void Main(string[] args)
         {
-            // 2 dimensional array!
-            string[,] topics = {{"cat","dog","frog","hedgehog"},
-                                {"zebra","giraffe","lion","elephant"},
-                                {"dolphin","octopus","shark","whale"},
-                                {"ant","beetle","waterbug","mosquito"}};
-            // Loop through the rows...
-            for( int row = 0; row < topics.GetLength(0); row++ ) // row = row + 1;
+            // Prompt the user.
+            Console.WriteLine( "Please type: (add/subtract/exit)" );
+            string command; // Declare a variable.
+            // Accept commands.
+            while( ( command = Console.ReadLine() ) != "exit" )
             {
-                // Output current row...
-                Console.WriteLine( "Starting row #{0}", row );
-                // Loop through columns in the current row...
-                for ( int column = 0; column < topics.GetLength(1); column++ )
+                int result;
+                if ( command == "add" )
                 {
-                    // Output the current column...
-                    Console.WriteLine( "Starting column #{0}", column );
-                    // Output the current animal!
-                    Console.WriteLine( "This animal is: {0}", topics[row,column] );
+                    Console.WriteLine( "Enter first number to add:" );
+                    int firstNum = int.Parse( Console.ReadLine() );
+                    Console.WriteLine( "Enter second number to add:" );
+                    int secondNum = int.Parse( Console.ReadLine() );
+                    result = Addition( firstNum, secondNum );
+                    Console.WriteLine( "The result is: {0}", result );
                 }
-            }
+                else if ( command == "subtract" )
+                {
+                    Console.WriteLine( "Enter first number to subtract:" );
+                    int firstNum = int.Parse( Console.ReadLine() );
+                    Console.WriteLine( "Enter second number to subtract:" );
+                    int secondNum = int.Parse( Console.ReadLine() );
+                    result = Subtraction( firstNum, secondNum );
+                    Console.WriteLine( "The result is: {0}", result );
+                }
+                else
+                {
+                    Console.WriteLine( "Invalid command, please try again." );
+                }
+                Console.WriteLine( "Please enter a command: (add/subtract/exit)" );
+            } // End of the while loop.
+        }
+
+        static int Addition( int num1, int num2 )
+        {
+            return num1 + num2;
+        }
+
+        static int Subtraction( int num1, int num2 )
+        {
+            return num1 - num2;
         }
     }
 }
